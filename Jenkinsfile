@@ -8,7 +8,7 @@ pipeline {
             steps {
                 script {
                    // Get the current branch using git commands
-                   sh 'git for-each-ref --format='%(upstream:short)' "$(git symbolic-ref -q HEAD)"'
+                   sh 'git_branch=$(git rev-parse --abbrev-ref HEAD)'
 
                 }
             }
