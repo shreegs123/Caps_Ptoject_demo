@@ -1,17 +1,15 @@
 pipeline {
     agent any
 
-    environment {
-        // Store the current branch name in a variable
-        CURRENT_BRANCH = "env.BRANCH_NAME"
-    }
+    
 
     stages {
         stage('Get Branch') {
             steps {
                 script {
-                    // Access the branch name using the environment variable
-                    echo "Current branch is: ${CURRENT_BRANCH}"
+                   // Get the current branch using git commands
+                    def currentBranch = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
+                    echo "Current branch is: ${currentBranch}"
 
                 }
             }
