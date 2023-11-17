@@ -12,6 +12,8 @@ echo "$remoteBranch"
 
 if [ $remoteBranch == 'dev' ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
+    export DOCKERHUB_PASSWORD = "dockerhub_password"
+    export DOCKERHUB_USERNAME = "dockerhub_username"
     
  // Log in to DockerHub without requiring TTY
     echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
