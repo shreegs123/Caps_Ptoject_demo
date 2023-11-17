@@ -6,23 +6,14 @@ pipeline {
             steps {
                 script {
                     def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name HEAD', returnStdout: true).trim()
-
-                    if (gitBranch == 'HEAD') {
-                        // Detached HEAD state, attempt to fetch the remote branch
-                        def remoteBranch = sh(script: 'git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3-', returnStdout: true).trim()
-                        echo "Detached HEAD State. Full Git Branch: origin/$remoteBranch"
-                    } else {
-                        // Not in detached HEAD state, use the retrieved branch name
-                        def remoteName = sh(script: 'git config branch.$gitBranch.remote', returnStdout: true).trim()
-                        echo "Full Git Branch: $remoteName/$gitBranch"
+                    def remoteBranch = sh(script: 'git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3-', returnStdout: true).trim()
+                    echo "Git Branch: origin/$remoteBranch"
                     }
                 }
             }
         }
-
-        // Add more stages as needed
     }
-}
+
 
 
 /*pipeline {
