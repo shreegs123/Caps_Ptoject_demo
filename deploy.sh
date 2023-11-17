@@ -13,7 +13,7 @@ DOCKERHUB_USERNAME="your_dockerhub_username"
 DOCKERHUB_PASSWORD="your_dockerhub_password"
 
 
-if [ remoteBranch == 'dev' ]; then
+if [ $remoteBranch == 'dev' ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
 
     # Build the Docker image
