@@ -16,7 +16,8 @@ if [ $remoteBranch == 'dev' ]; then
     export DOCKERHUB_USERNAME = "dockerhub_username"
     
  // Log in to DockerHub without requiring TTY
-    echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
+   # echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
+   docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
 
 
     # Build the Docker image
