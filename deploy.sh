@@ -9,8 +9,8 @@ remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut
 echo "$remoteBranch"
 # echo "Git Branch: origin/$remoteBranch"
 
-export DOCKERHUB_USERNAME="your_dockerhub_username"
-export DOCKERHUB_PASSWORD="your_dockerhub_password"
+# export DOCKERHUB_USERNAME="your_dockerhub_username"
+# export DOCKERHUB_PASSWORD="your_dockerhub_password"
 
 
 if [ $remoteBranch == 'dev' ]; then
@@ -20,7 +20,8 @@ if [ $remoteBranch == 'dev' ]; then
     docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
 
     # Log in to DockerHub
-    echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    # echo "$DOCKERHUB_PASSWORD" | 
+    docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
 
     # Push the Docker image to DockerHub
     docker push "${DOCKERHUB_USERNAME}/dev-image:latest"
