@@ -13,19 +13,8 @@ echo "$remoteBranch"
 if [ $remoteBranch == 'dev' ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
     
-    export DOCKER_REGISTRY_CREDS="dockerhub-credentials-id"
-    export DOCKER_PASSWORD="your-docker-password"
-    export DOCKER_USERNAME="your-docker-username"
-
-
-    // Pull DockerHub credentials from Jenkins credentials
-    withCredentials([usernamePassword(credentialsId: "${DOCKER_REGISTRY_CREDS}", passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-    echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin docker.io
-}
-
-    
-    // Log in to DockerHub without requiring TTY
-   # echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
+ // Log in to DockerHub without requiring TTY
+    echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
 
 
     # Build the Docker image
