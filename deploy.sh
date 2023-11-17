@@ -15,8 +15,8 @@ if [ $remoteBranch == 'dev' ]; then
 
     // Pull DockerHub credentials from Jenkins credentials
     withCredentials([usernamePassword(credentialsId: "${DOCKER_REGISTRY_CREDS}", passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-    echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin docker.io
-    }
+    echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin docker.io
+}
 
     
     // Log in to DockerHub without requiring TTY
