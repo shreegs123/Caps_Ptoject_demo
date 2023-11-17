@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment {
+         DOCKERHUB_PASSWORD = "dockerhub_password"
+         DOCKERHUB_USERNAME = "dockerhub_username"
+    
+    }
+    
     stages {
         stage('Get Full Git Branch') {
             steps {
