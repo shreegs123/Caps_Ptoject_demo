@@ -1,20 +1,23 @@
 pipeline {
     agent any
+
     stages {
-        stage('Get Branch') {
+        stage('Check Branch') {
             steps {
                 script {
-                   // Get the current branch using git commands
-                  // echo "Current Branch: ${env.BRANCH_NAME}"
-                    def gitBranch = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
-                    echo "Full Git Branch: ${gitBranch}"
-                }
-
+                    if (env.BRANCH_NAME == 'dev') {
+                        echo 'This is the dev branch.'
+                        // Add steps specific to the dev branch
+                    } else {
+                        echo 'This is not the dev branch.'
+                        // Add steps for other branches
+                    }
                 }
             }
         }
 
+        // Add more stages as needed
     }
-
+}
     
 
