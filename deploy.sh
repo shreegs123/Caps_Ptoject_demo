@@ -6,7 +6,7 @@ DOCKERHUB_USERNAME="your_dockerhub_username"
 DOCKERHUB_PASSWORD="your_dockerhub_password"
 
 # Check if the branch is dev
-if [ "$GITHUB_REF" == "origin/dev" ]; then
+if [ env.BRANCH_NAME == 'dev' ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
 
     # Build the Docker image
