@@ -2,6 +2,22 @@ pipeline {
     agent any
 
     stages {
+        stage('Get Full Git Branch') {
+            steps {
+                script {
+                    def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name @{u}', returnStdout: true).trim()
+                    echo "Full Git Branch: ${gitBranch}"
+                }
+            }
+        }
+
+        // Add more stages as needed
+    }
+}
+/*pipeline {
+    agent any
+
+    stages {
         stage('Check Branch') {
             steps {
                 script {
@@ -19,6 +35,6 @@ pipeline {
 
         // Add more stages as needed
     }
-}
+} */
     
 
