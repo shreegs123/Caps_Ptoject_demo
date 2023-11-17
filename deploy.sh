@@ -1,7 +1,8 @@
 #!/bin/bash
 
+echo "env.BRANCH_NAME"
 
-# DockerHub credentials
+/*# DockerHub credentials
 DOCKERHUB_USERNAME="your_dockerhub_username"
 DOCKERHUB_PASSWORD="your_dockerhub_password"
 
@@ -21,5 +22,5 @@ if [ env.BRANCH_NAME == 'dev' ]; then
     echo "Docker image built and pushed successfully."
 else
     echo "Code pushed to a branch other than dev. Skipping Docker image build."
-fi
+fi */
 
