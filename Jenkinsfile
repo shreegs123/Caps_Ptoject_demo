@@ -8,7 +8,7 @@ pipeline {
                     def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name HEAD', returnStdout: true).trim()
                     def remoteBranch = sh(script: 'git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3-', returnStdout: true).trim()
                     echo "Git Branch: origin/$remoteBranch" 
-                    #sh 'bash deploy.sh'
+                    
                     }
                 }
             }
