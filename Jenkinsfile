@@ -5,7 +5,7 @@ pipeline {
         stage('Get Full Git Branch') {
             steps {
                 script {
-                    def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name @{u}', returnStdout: true).trim()
+                    def gitBranch = sh(script: 'git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3-', returnStdout: true).trim()
                     echo "Full Git Branch: ${gitBranch}"
                 }
             }
@@ -14,6 +14,7 @@ pipeline {
         // Add more stages as needed
     }
 }
+
 /*pipeline {
     agent any
 
