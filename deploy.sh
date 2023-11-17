@@ -16,12 +16,12 @@ echo "$remoteBranch"
 if [ $remoteBranch == 'dev' ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
 
-    # Build the Docker image
-    docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
-
     # Log in to DockerHub
     # echo "$DOCKERHUB_PASSWORD" | 
     docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}
+
+    # Build the Docker image
+    docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
 
     # Push the Docker image to DockerHub
     docker push "${DOCKERHUB_USERNAME}/dev-image:latest"
