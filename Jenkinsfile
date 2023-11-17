@@ -5,7 +5,7 @@ pipeline {
         stage('Get Full Git Branch') {
             steps {
                 script {
-                    def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name HEAD', returnStdout: true).trim()
+                    //def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name HEAD', returnStdout: true).trim()
                     def remoteName = sh(script: 'git config branch.$gitBranch.remote', returnStdout: true).trim()
                     echo "Full Git Branch: $remoteName/$gitBranch"
                 }
