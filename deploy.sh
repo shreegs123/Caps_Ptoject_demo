@@ -15,16 +15,16 @@ if [ $remoteBranch == 'dev' ]; then
     export DOCKERHUB_PASSWORD= "dockerhub_password"
     export DOCKERHUB_USERNAME= "dockerhub_username"
     
- // Log in to DockerHub without requiring TTY
+ # Log in to DockerHub without requiring TTY
    # echo ${DOCKERHUB_PASSWORD} | docker login -u ${DOCKERHUB_USERNAME} --password-stdin
    docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
 
 
     # Build the Docker image
-    docker build -t "${DOCKER_USERNAME}/dev-image:latest" .
+    docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
 
     # Push the Docker image to DockerHub
-    docker push "${DOCKER_USERNAME}/dev-image:latest"
+    docker push "${DOCKERHUB_USERNAME}/dev-image:latest"
 
     echo "Docker image built and pushed successfully."
 else
