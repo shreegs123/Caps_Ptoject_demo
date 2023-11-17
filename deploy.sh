@@ -9,8 +9,8 @@ remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut
 echo "$remoteBranch"
 # echo "Git Branch: origin/$remoteBranch"
 
-DOCKERHUB_USERNAME="your_dockerhub_username"
-DOCKERHUB_PASSWORD="your_dockerhub_password"
+export DOCKERHUB_USERNAME="your_dockerhub_username"
+export DOCKERHUB_PASSWORD="your_dockerhub_password"
 
 
 if [ $remoteBranch == 'dev' ]; then
