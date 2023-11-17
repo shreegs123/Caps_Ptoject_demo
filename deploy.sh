@@ -6,7 +6,8 @@ gitBranch=$(git rev-parse --abbrev-ref --symbolic-full-name HEAD | tr -d '\n')
 remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut -d / -f 3 | tr -d '\n')
 
 # Print the result
-echo "Git Branch: origin/$remoteBranch"
+echo "$remoteBranch"
+# echo "Git Branch: origin/$remoteBranch"
 
 DOCKERHUB_USERNAME="your_dockerhub_username"
 DOCKERHUB_PASSWORD="your_dockerhub_password"
