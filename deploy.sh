@@ -22,6 +22,7 @@ if [ $remoteBranch == 'dev' ]; then
 withCredentials([string(credentialsId: ‘manjusecret’, variable: ‘dockerhubpwd’)]) {
 docker login -u manjusecret -p ${dockerhubpwd}
 docker push manju/javapp
+}
 
 
     # Build the Docker image
