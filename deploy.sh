@@ -23,10 +23,10 @@ if [ $remoteBranch == 'dev' ]; then
 
 
     # Build the Docker image
-    docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
+    docker build -t "${DOCKER_USERNAME}/dev-image:latest" .
 
     # Push the Docker image to DockerHub
-    docker push "${DOCKERHUB_USERNAME}/dev-image:latest"
+    docker push "${DOCKER_USERNAME}/dev-image:latest"
 
     echo "Docker image built and pushed successfully."
 else
