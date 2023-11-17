@@ -1,9 +1,10 @@
 pipeline {
     agent any
-    environment {
-        DOCKER_REGISTRY_CREDS = credentials('dockerhub-credentials-id')
+    parameters {
+        string(name: 'DOCKER_REGISTRY_CREDS', defaultValue: '', description: 'Docker registry credentials ID')
+        string(name: 'DOCKER_PASSWORD', defaultValue: '', description: 'Docker registry password')
+        string(name: 'DOCKER_USERNAME', defaultValue: '', description: 'Docker registry username')
     }
-
     stages {
         stage('Get Full Git Branch') {
             steps {
