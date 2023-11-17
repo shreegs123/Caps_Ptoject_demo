@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Path to your local repository
-REPO_PATH="/path/to/your/repository"
 
 # DockerHub credentials
 DOCKERHUB_USERNAME="your_dockerhub_username"
@@ -10,9 +8,6 @@ DOCKERHUB_PASSWORD="your_dockerhub_password"
 # Check if the branch is dev
 if [ "$GITHUB_REF" == "refs/heads/dev" ]; then
     echo "Code pushed to dev branch. Building and pushing Docker image..."
-
-    # Navigate to the repository directory
-    cd "$REPO_PATH" || exit
 
     # Build the Docker image
     docker build -t "${DOCKERHUB_USERNAME}/dev-image:latest" .
