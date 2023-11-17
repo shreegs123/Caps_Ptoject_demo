@@ -5,6 +5,24 @@ pipeline {
         stage('Get Full Git Branch') {
             steps {
                 script {
+                    def gitBranch = sh(script: 'git rev-parse --abbrev-ref --symbolic-full-name HEAD', returnStdout: true).trim()
+                    def remoteName = sh(script: 'git config branch.$gitBranch.remote', returnStdout: true).trim()
+                    echo "Full Git Branch: $remoteName/$gitBranch"
+                }
+            }
+        }
+
+        // Add more stages as needed
+    }
+}
+
+/*pipeline {
+    agent any
+
+    stages {
+        stage('Get Full Git Branch') {
+            steps {
+                script {
                     def gitBranch = sh(script: 'git ls-remote --heads origin | grep $(git rev-parse HEAD) | cut -d / -f 3-', returnStdout: true).trim()
                     echo "Full Git Branch: ${gitBranch}"
                 }
@@ -13,7 +31,7 @@ pipeline {
 
         // Add more stages as needed
     }
-}
+}*/
 
 /*pipeline {
     agent any
