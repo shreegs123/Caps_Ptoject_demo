@@ -23,7 +23,7 @@ docker push $DOCKER_ID/dev:caps_img
 
 echo "Docker image built and pushed successfully to dev repo."
 
-# check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub
+# check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.
 elif [ $remoteBranch == 'dev' ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev' into main"; then
     echo "Merging dev into main detected. Pushing to prod repository."
 
