@@ -24,7 +24,7 @@ docker push $DOCKER_ID/dev:caps_img
 echo "Docker image built and pushed successfully to dev repo."
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
-elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev' into main"; then
+elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev' of https://github.com/shreegs123/Caps_Ptoject_demo into main"; then
     echo "Merging dev into main detected. Pushing to prod repository."
 
     # Build the Docker image for production
