@@ -35,7 +35,7 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
 
     echo "Docker image built and pushed successfully to prod repo."
 else
-    echo "Code pushed to a branch other than dev. Skipping Docker image build."
+    echo "Code pushed to a branch other than dev.. Skipping Docker image build."
 fi 
 
 
