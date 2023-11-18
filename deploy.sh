@@ -19,7 +19,7 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 docker build -t $DOCKER_ID/dev:latest .
 
 # Push the Docker image to DockerHub
-docker push $DOCKER_ID/dev:caps_img
+docker push $DOCKER_ID/dev:tagname
 
 echo "Docker image built and pushed successfully to dev repo."
 
