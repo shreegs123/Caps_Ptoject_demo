@@ -8,7 +8,7 @@ remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut
 # Print the result
 echo "$remoteBranch"
 
-/*# check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
+# check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
 if [ $remoteBranch == 'dev' ]; then
 echo "Code pushed to dev branch. Building and pushing Docker image..."
 DOCKER_ID= DOCKER_ID
@@ -36,6 +36,6 @@ elif [ $remoteBranch == 'dev' ] && git log -n 1 --merges --pretty=%B | grep -q "
     echo "Docker image built and pushed successfully to prod repo."
 else
     echo "Code pushed to a branch other than dev. Skipping Docker image build."
-fi */
+fi 
 
 
