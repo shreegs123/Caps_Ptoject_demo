@@ -18,7 +18,7 @@ if [ $remoteBranch == 'dev' ]; then
 
 # Build the Docker image
 	bash build.sh
-	docker tag caps-image $DOCKER_ID/dev:latest
+# docker tag caps-image $DOCKER_ID/dev:latest
 # Push the Docker image to DockerHub
 	docker push $DOCKER_ID/dev:tagname
 
