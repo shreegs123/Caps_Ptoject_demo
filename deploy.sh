@@ -10,28 +10,31 @@ echo "$remoteBranch"
 
 # check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
 if [ $remoteBranch == 'dev' ]; then
-echo "Code pushed to dev branch. Building and pushing Docker image..."
-DOCKER_ID= DOCKER_ID
-DOCKER_PASSWORD= DOCKER_PASSWORD
-echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
+	echo "Code pushed to dev branch. Building and pushing Docker image..."
+	DOCKER_ID= DOCKER_ID
+	DOCKER_PASSWORD= DOCKER_PASSWORD
+	echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
+
+	pub_repo= dev
+	priv_repo= prod
 
 # Build the Docker image
-docker build -t $DOCKER_ID/dev:latest .
-
+	bash build.sh
+	docker tag $DOCKER_ID/$pub_repo:latest
 # Push the Docker image to DockerHub
-docker push $DOCKER_ID/dev:tagname
+	docker push $DOCKER_ID/$pub_repo:tagname
 
-echo "Docker image built and pushed successfully to dev repo."
+	echo "Docker image built and pushed successfully to dev repo."
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
 elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev'"; then
     echo "Merging dev into main detected. Pushing to prod repository."
 
-    # Build the Docker image for production
-    docker build -t $DOCKER_ID/prod:latest .
-
-    # Push the Docker image to the production repository
-    docker push $DOCKER_ID/prod:tagname
+# Build the Docker image for production
+    bash build.sh
+    docker tag $DOCKER_ID/$priv_repo:latest
+# Push the Docker image to the production repository
+    docker push $DOCKER_ID/private-$priv_repo:tagname
 
     echo "Docker image built and pushed successfully to prod repo."
 else

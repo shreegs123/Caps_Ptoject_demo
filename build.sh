@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker build -t caps-img .
+docker build -t caps-image .
 
 docker-compose down || true
 
