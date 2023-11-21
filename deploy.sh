@@ -20,9 +20,9 @@ if [ $remoteBranch == 'dev' ]; then
 
 # Build the Docker image
 	bash build.sh
-	docker tag $DOCKER_ID/$pub_repo:latest
+	docker tag $DOCKER_ID/dev:latest
 # Push the Docker image to DockerHub
-	docker push $DOCKER_ID/$pub_repo:tagname
+	docker push $DOCKER_ID/dev:tagname
 
 	echo "Docker image built and pushed successfully to dev repo."
 
@@ -32,9 +32,9 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
 
 # Build the Docker image for production
     bash build.sh
-    docker tag $DOCKER_ID/$priv_repo:latest
+    docker tag $DOCKER_ID/prod:latest
 # Push the Docker image to the production repository
-    docker push $DOCKER_ID/private-$priv_repo:tagname
+    docker push $DOCKER_ID/private-prod:tagname
 
     echo "Docker image built and pushed successfully to prod repo."
 else
