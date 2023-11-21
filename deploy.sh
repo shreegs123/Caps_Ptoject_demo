@@ -15,8 +15,6 @@ if [ $remoteBranch == 'dev' ]; then
 	DOCKER_PASSWORD= DOCKER_PASSWORD
 	echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
-	pub_repo= dev
-	priv_repo= prod
 
 # Build the Docker image
 	bash build.sh
