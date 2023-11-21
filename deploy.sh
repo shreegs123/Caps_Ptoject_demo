@@ -21,7 +21,7 @@ if [ $remoteBranch == 'dev' ]; then
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
 # Push the Docker image to development DockerHub repo
-	docker push $DOCKER_ID/dev:$DOCKER_ID/dev
+	docker push $DOCKER_ID/dev:tagname
 	echo "Docker image built and pushed successfully to dev repo."
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
