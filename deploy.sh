@@ -14,7 +14,8 @@ if [ $remoteBranch == 'dev' ]; then
 
 # Build the Docker image
 	bash build.sh
-	docker tag caps-image $DOCKER_ID/dev:latest
+	ImageName= Image_Name
+	docker tag Image_Name:$DOCKER_ID/dev:latest
 
 # Docker hub login 
 	DOCKER_ID= DOCKER_ID
@@ -31,7 +32,7 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
 
 # Build the Docker image for production
     bash build.sh
-    docker tag caps-image $DOCKER_ID/prod:latest
+    docker tag imagename:$DOCKER_ID/prod:latest
 
 # Docker hub login 
         DOCKER_ID= DOCKER_ID

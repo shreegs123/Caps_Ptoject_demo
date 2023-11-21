@@ -1,6 +1,6 @@
 #!/bin/bash
-
-docker build -t caps-image .
+ImageName= caps-image
+docker build -t $ImageName .
 
 docker-compose down || true
 
