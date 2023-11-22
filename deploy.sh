@@ -39,7 +39,7 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
 
 # Push the Docker image to the production repository
     docker tag caps-image:latest $DOCKER_ID/prod:capstone
-    docker push $DOCKER_ID/private-prod:capstone
+    docker push $DOCKER_ID/prod:capstone
 
     echo "Docker image built and pushed successfully to prod repo."
 else
