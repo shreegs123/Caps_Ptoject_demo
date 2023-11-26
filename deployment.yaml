@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: capstone_img
+        image: manjushree/dev:capstone
         imagePullPolicy: Always
         ports:
         - containerPort: 8085
