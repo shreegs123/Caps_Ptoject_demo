@@ -9,6 +9,7 @@ pipeline {
         stage('Build and Push') {
             steps {
                 script {
+                    sh 'echo "build and push phase"'
                     sh 'bash deploy.sh'
                        }
                 }
