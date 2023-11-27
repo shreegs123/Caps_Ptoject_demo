@@ -14,7 +14,7 @@ pipeline {
                 }
             }
           
-    stage('K8S Deploy') {
+    /* stage('K8S Deploy') {
         steps{   
             script {
                 withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-       }
+       } */
 
     } 
 } 
