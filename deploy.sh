@@ -19,7 +19,7 @@ if [ $remoteBranch == 'dev' ]; then
 
 # Build the Docker image
         bash build.sh
-        docker tag caps-image:latest $DOCKER_ID/dev:capstoneImage
+        docker tag capstone-img:latest $DOCKER_ID/dev:capstoneImage
 
 # Push the Docker image to development DockerHub repo
 	docker push $DOCKER_ID/dev:capstoneImage
@@ -38,7 +38,7 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
 # Push the Docker image to the production repository
-    docker tag caps-image:latest $DOCKER_ID/prod:capstoneImage
+    docker tag capstone-img:latest $DOCKER_ID/prod:capstoneImage
     docker push $DOCKER_ID/private-prod:capstoneImage
 
     echo "Docker image built and pushed successfully to prod repo."
