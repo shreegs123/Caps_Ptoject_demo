@@ -11,9 +11,6 @@ echo "$remoteBranch"
 # check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
 <<<<<<< HEAD
 if [ "$remoteBranch" = "dev" ]; then
-=======
-if [ "$remoteBranch" = 'dev' ]; then
->>>>>>> 622a71c5094e1785b99d74ad82ca82db8bfa480b
 	echo "Code pushed to dev branch. Building and pushing Docker image..."
 
 # Docker hub login 
