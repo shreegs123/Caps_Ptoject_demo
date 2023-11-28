@@ -9,7 +9,7 @@ remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut
 echo "$remoteBranch"
 
 # check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
-if [ "$remoteBranch" = "dev" ]; then
+if [ "$remoteBranch" == "dev" ]; then
 	echo "Code pushed to dev branch. Building and pushing Docker image..."
 
 ### Docker hub login 
@@ -26,7 +26,7 @@ if [ "$remoteBranch" = "dev" ]; then
 	echo "Docker image built and pushed successfully to dev repo"
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
-elif [ "$remoteBranch" = "main" ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev'"; then
+elif [ "$remoteBranch" == "main" ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev'"; then
 
     echo "Merging dev into main detected. Pushing to prod repository."
 
