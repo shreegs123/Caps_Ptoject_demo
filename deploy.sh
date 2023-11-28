@@ -19,10 +19,10 @@ if [ $remoteBranch == 'dev' ]; then
 
 # Build the Docker image
         bash build.sh
-        docker tag capstone-img:latest $DOCKER_ID/dev:capstoneImage
+        docker tag capstone-image:latest $DOCKER_ID/dev:React-App
 
 # Push the Docker image to development DockerHub repo
-	docker push $DOCKER_ID/dev:capstoneImage
+	docker push $DOCKER_ID/dev:React-App
 	echo "Docker image built and pushed successfully to dev repo."
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
@@ -38,8 +38,8 @@ elif [ $remoteBranch == 'main' ] && git log -n 1 --merges --pretty=%B | grep -q 
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
 # Push the Docker image to the production repository
-    docker tag capstone-img:latest $DOCKER_ID/prod:capstoneImage
-    docker push $DOCKER_ID/private-prod:capstoneImage
+    docker tag capstone-image:latest $DOCKER_ID/prod:React-App
+    docker push $DOCKER_ID/private-prod:React-App
 
     echo "Docker image built and pushed successfully to prod repo."
 else

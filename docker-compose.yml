@@ -2,6 +2,6 @@ version: "3"
 
 services:
     caps-proj:
-        image: capstone-img
+        image: capstone-image
         ports:
             - 80:80
