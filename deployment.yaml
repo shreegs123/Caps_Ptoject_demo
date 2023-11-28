@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: react-app
   name: react-app
 spec:
   replicas: 2
@@ -15,28 +13,25 @@ spec:
         app: react-app
     spec:
       containers:
-      - name: my-react-app
-        image: manjushreegs/dev:capstone
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8085
-          name: http
-          protocol: TCP
+      - name: react-app
+        image: manjushreegs/dev:React-App
+         ports:
+        - containerPort: 80
+            
+
+            
 # service type loadbalancer       
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: react-app
   name: react-app
 spec:
-  ports:
-  - name: http
-    port: 8085
-    protocol: TCP
-    targetPort: 8085
-    nodePort: 32410
   type: NodePort
   selector:
     app: react-app
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 32410
