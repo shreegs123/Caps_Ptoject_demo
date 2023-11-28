@@ -26,7 +26,6 @@ if [ "$remoteBranch" = "dev" ]; then
 	echo "Docker image built and pushed successfully to dev repo."
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
-<<<<<<< HEAD
 elif [ "$remoteBranch" = "main" ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev'"; then
     echo "Merging dev into main detected. Pushing to prod repository."
 
