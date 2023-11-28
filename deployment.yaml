@@ -15,7 +15,7 @@ spec:
       containers:
       - name: react-app
         image: manjushreegs/dev:React-App
-         ports:
+        ports:
         - containerPort: 80
             
 
