@@ -9,7 +9,6 @@ remoteBranch=$(git ls-remote --heads origin | grep "$(git rev-parse HEAD)" | cut
 echo "$remoteBranch"
 
 # check if the code is pushed to dev branch on git hub then build and push to dockerhub dev repo
-<<<<<<< HEAD
 if [ "$remoteBranch" = "dev" ]; then
 	echo "Code pushed to dev branch. Building and pushing Docker image..."
 
