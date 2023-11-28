@@ -23,10 +23,11 @@ if [ "$remoteBranch" = "dev" ]; then
 
 # Push the Docker image to development DockerHub repo
 	docker push $DOCKER_ID/dev:React-App
-	echo "Docker image built and pushed successfully to dev repo."
+	echo "Docker image built and pushed successfully to dev repo"
 
 ## check if the code is pushed to dev branch and dev branch is merged to main branch on github then build and push to prod repo on dockerhub.#
 elif [ "$remoteBranch" = "main" ] && git log -n 1 --merges --pretty=%B | grep -q "Merge branch 'dev'"; then
+
     echo "Merging dev into main detected. Pushing to prod repository."
 
 # Build the Docker image for production
