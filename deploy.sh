@@ -12,7 +12,7 @@ echo "$remoteBranch"
 if [ "$remoteBranch" = "dev" ]; then
 	echo "Code pushed to dev branch. Building and pushing Docker image..."
 
-## Docker hub login 
+### Docker hub login 
 	DOCKER_ID= DOCKER_ID
         DOCKER_PASSWORD= DOCKER_PASSWORD
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
