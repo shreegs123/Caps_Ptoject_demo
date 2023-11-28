@@ -11,4 +11,4 @@ RUN npm run build
 
 
 FROM nginx:1.18-alpine
-COPY --from=build /Caps_Ptoject_demo /usr/share/nginx/html
+COPY --from=build /Caps_Ptoject_demo/build /usr/share/nginx/html
