@@ -32,6 +32,7 @@ elif [ "$remoteBranch" == "main" ] && git log -n 1 --merges --pretty=%B | grep -
 
 # Build the Docker image for production
     bash build.sh
+    docker tag capstone-image:latest $DOCKER_ID/prod:React-App
 
 # Docker hub login 
         DOCKER_ID= DOCKER_ID
@@ -39,7 +40,6 @@ elif [ "$remoteBranch" == "main" ] && git log -n 1 --merges --pretty=%B | grep -
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
 # Push the Docker image to the production repository
-    docker tag capstone-image:latest $DOCKER_ID/prod:React-App
     docker push $DOCKER_ID/private-prod:React-App
 
     echo "Docker image built and pushed successfully to prod repo."
