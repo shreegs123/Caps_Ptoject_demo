@@ -40,7 +40,7 @@ elif [ "$remoteBranch" == "main" ] && git log -n 1 --merges --pretty=%B | grep -
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_ID --password-stdin
 
 # Push the Docker image to the production repository
-    docker push $DOCKER_ID/private-prod:React-App
+    docker push $DOCKER_ID/prod:React-App
 
     echo "Docker image built and pushed successfully to prod repo."
 else
