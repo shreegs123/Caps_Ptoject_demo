@@ -1,7 +1,7 @@
 FROM node:14.9.0 AS build
 
 
-WORKDIR /Caps_Ptoject_demo
+WORKDIR /Capstone-Project
 COPY package.json package-lock.json ./
 RUN npm install
 
@@ -11,4 +11,4 @@ RUN npm run build
 
 
 FROM nginx:1.18-alpine
-COPY --from=build /Caps_Ptoject_demo /usr/share/nginx/html
+COPY --from=build /Capstone-Project/build /usr/share/nginx/html
